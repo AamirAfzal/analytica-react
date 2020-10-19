@@ -20,7 +20,7 @@ import '../css/styles1.css';
 import { circle } from '@fortawesome/fontawesome-free'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import leftArrowIcon from '../images/left-arrow-icon.svg';
-import { faCircle, faTimesCircle, faArrowAltCircleLeft, faArrowAltCircleRight, faUserCircle, faArrowAltCircleDown, faEdit, faCalendar } from '@fortawesome/free-regular-svg-icons'
+import { faCircle, faTimesCircle, faArrowAltCircleLeft,faFileImage,faBuilding, faArrowAltCircleRight, faUserCircle, faArrowAltCircleDown, faEdit, faCalendar } from '@fortawesome/free-regular-svg-icons'
 import { faWifi, faBolt, faClipboardList } from '@fortawesome/free-solid-svg-icons';
 import { Collapse } from 'react-collapse';
 import GridLayout from 'react-grid-layout';
@@ -30,6 +30,8 @@ import DevicesView from './Devices.js';
 import Actions from './Actions';
 import DeviceView from './DeviceView';
 import MyProfileView from './MyProfileView';
+import ImageView from './Images';
+import UseCases from './UseCases';
 
 export default class extends React.Component {
     constructor() {
@@ -296,6 +298,11 @@ export default class extends React.Component {
                             <h3>Devices</h3>
 
                         </div>
+                        <div onClick={() => window.location.href='/home/usecases'} className="MenuItem">
+                            <FontAwesomeIcon icon={faBuilding} />
+                            <h3>Use Case(s)</h3>
+
+                        </div>
                         <div onClick={() => window.location.href='/home/actions'} className="MenuItem">
                             <FontAwesomeIcon icon={faBolt} />
                             <h3>Actions</h3>
@@ -304,6 +311,11 @@ export default class extends React.Component {
                         <div onClick={() => window.location.href='/home/devices'} className="MenuItem">
                             <FontAwesomeIcon icon={faClipboardList} />
                             <h3>Reports</h3>
+
+                        </div>
+                        <div onClick={() => window.location.href='/home/images'} className="MenuItem">
+                            <FontAwesomeIcon icon={faFileImage} />
+                            <h3>Images</h3>
 
                         </div>
                         <div onClick={e => this.collapse('collapseProfile')}  className="MenuItem">
@@ -330,10 +342,13 @@ export default class extends React.Component {
                     <div style={{ overflow: 'scroll' }} className={"content " + (this.state.loading ? "" : "")}>
                         <Router>
                             <Switch>
+                                <Route path='/home/usecases' component = {UseCases}/>
+                                <Route path='/home/images' component = {ImageView}/>
                                 <Route path='/home/devices/:device' component={DeviceView}/>
                                 <Route path='/home/devices' component={DevicesView}/>
                                 <Route path='/home/editprofile' render={(props) => <MyProfileView user={this.state.user} {...props}/>}/>
                                 <Route path='/home/actions' component = {Actions}/>
+                               
                                 <Route path="/home" render={() => <DashboardView/>}/>
 
                             </Switch>

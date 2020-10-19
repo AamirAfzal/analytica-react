@@ -19,6 +19,7 @@ import Covid from './components/Covid19/Covid19'
 import About from './sections/About'
 import Navbar from './components/Navbar'
 import PriceTable from './sections/Price'
+import Img from './views/Images';
 
 
 

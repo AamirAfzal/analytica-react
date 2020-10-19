@@ -5,7 +5,7 @@ import Chart from "react-apexcharts";
 import FormField from '../components/FormField';
 import FormButton from '../components/FormButton';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCircle, faTimesCircle, faArrowAltCircleLeft, faArrowAltCircleRight, faUserCircle, faArrowAltCircleDown, faEdit } from '@fortawesome/free-regular-svg-icons'
+import { faCircle, faTimesCircle, faArrowAltCircleLeft, faArrowAltCircleRight, faUserCircle, faArrowAltCircleDown, faEdit, faImages } from '@fortawesome/free-regular-svg-icons'
 import barIcon from '../images/bar.png';
 import radarIcon from '../images/radar.png';
 import donutIcon from '../images/donut.png';
@@ -52,7 +52,7 @@ const nameToImg = {
     tvoc: tvocIcon,
     temperature: temperatureIcon,
     scatter: scatterIcon,
-
+//here in dashboard acha
 
 }
 const data = [30, 40, 45, 50, 49, 60, 70, 91]
@@ -63,6 +63,7 @@ export default class DashboardView extends React.Component {
         this.state = {
             widgets: [],
             devices: [],
+            images:[],
             step: 1,
             selectedWidget: '',
             selectedDevice: '',
